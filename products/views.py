@@ -5,7 +5,12 @@ from django.shortcuts import render
 #Функции = контроллеры
 
 def index(request):
-    return render(request, 'products/index.html')
+    context = {
+        'title': 'Store',
+        'is_promotions': False,
+        }
+    return render(request, 'products/index.html', context)
 
 def products(request):
     return render(request, 'products/products.html')
+
