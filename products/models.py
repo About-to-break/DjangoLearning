@@ -23,14 +23,14 @@ class Product(models.Model):
         return f'Продукт: {self.name} | Категория: {self.category.name}'
 
 
-class Basket(models.Model):
+class Basket (models.Model):
     user = models.ForeignKey(to=User,on_delete=models.CASCADE)
     product = models.ForeignKey(to=Product, on_delete=models.CASCADE)
     quantity = models.PositiveSmallIntegerField(default=0)
     created_timestamp = models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return f'Корзина для : {self.user.email} | Продукт: {self.product.name}'
+        return f'Корзина пользователя : {self.user.username} | Продукт: {self.product.name}'
 
 
 
